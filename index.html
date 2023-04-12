@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lectura con el navegador 💬</title>
+</head>
+
+<body>
+    <h1>Lectura con el navegador 💬</h1>
+    <p>🌎 Lenguaje:</p>
+    <input type="text" value="es-MX" id="lang">
+    <button onclick="read()">Leer 💬</button>
+    <p>📖 Escribe un texto para que el navegador lo lea en voz alta:</p>
+    <textarea cols="80" rows="10" id="text"></textarea>
+    <script>
+        function read() {
+            const synth = window.speechSynthesis
+            const voice = new SpeechSynthesisUtterance()
+            voice.lang = document.getElementById('lang').value
+            voice.text = document.getElementById('text').value
+            synth.speak(voice)
+        }
+    </script>
+</body>
+
+</html>
